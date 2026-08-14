@@ -12,24 +12,24 @@ button { font: inherit; cursor: pointer; }
 
 /* ---- Globale Variablen ---------------------------------- */
 :root {
-  --bg-a: #1e1712;            /* A-Welt Hintergrund */
+  --bg-a: #141210;            /* A-Welt Hintergrund (Ebenholz) */
   --bg-b: #f3f1ea;            /* B-Welt Hintergrund */
   --turn: 1.05s;              /* Dauer des Umblätterns */
 }
 
-/* ---- A-Welt: Forschung / Kunstkammer -------------------- */
+/* ---- A-Welt: Forschung / Kunstkammer (Ebenholz & Elfenbein) ---- */
 html.welt-a {
-  --bg:        #1e1712;
-  --bg-soft:   #271e16;
-  --panel:     #2a2017;
-  --ink:       #ece0c8;
-  --ink-soft:  #c3b083;
-  --ink-faint: #8a7a5c;
-  --accent:    #c9a44d;
-  --accent-2:  #e3cd8e;
-  --line:      rgba(201,164,77,.26);
-  --line-soft: rgba(201,164,77,.13);
-  --curl-face: #ab9f86;   /* Papier-Rückseite einer Buchseite */
+  --bg:        #141210;
+  --bg-soft:   #1b1815;
+  --panel:     #1f1c18;
+  --ink:       #ece1c9;
+  --ink-soft:  #b6a887;
+  --ink-faint: #85795c;
+  --accent:    #c7a662;
+  --accent-2:  #dbc088;
+  --line:      rgba(199,166,98,.24);
+  --line-soft: rgba(199,166,98,.12);
+  --curl-face: #a89c82;   /* Papier-Rückseite einer Buchseite */
   --serif-display: "Playfair Display", Georgia, serif;
   --serif-body:    "Source Serif 4", Georgia, serif;
   --sans:          "Inter", system-ui, sans-serif;
@@ -185,7 +185,40 @@ html.welt-a .brand__name { letter-spacing: .11em; }
 /* =========================================================
    Hero
    ========================================================= */
-.hero { padding-block: 64px 46px; }
+.hero {
+  padding-block: 64px 46px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 48px;
+  align-items: center;
+}
+.hero__text { min-width: 0; }
+.hero__portrait {
+  width: 240px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0;
+  background: var(--bg-soft);
+}
+.hero__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    justify-items: start;
+  }
+  .hero__portrait {
+    width: min(180px, 50%);
+    margin: 8px 0 0;
+  }
+}
 .hero__tag {
   margin-top: 20px;
   max-width: 600px;
